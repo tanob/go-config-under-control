@@ -24,7 +24,7 @@
           </job>
         </jobs>
       </stage>
-<stage name="2nd Stage">
+<stage name="2nd_Stage">
 	<jobs>
 		<job name="exit">
 			<tasks>
