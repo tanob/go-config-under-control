@@ -33,7 +33,7 @@ begin
           logs << line
           break if line =~ /Configuration Changed/
           capture_error = line =~ /unable|error/i
-          end
+        end
       end
     end
   end
