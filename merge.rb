@@ -19,26 +19,28 @@ File.open(config_file, 'w') {|f| f.write(config) }
 
 logs = []
 capture_error = false
+
 begin
-Timeout::timeout(30) do
-        loop do
-                result = select([server_log])
-                unless server_log.eof?
-                        line = server_log.gets
-			if capture_error
-				logs << line unless line =~ /^\d+-\d+-\d+/
-			elsif line =~ /cachedCruiseConfigRefreshExecutorThread/
-                       		logs << line
-                        	break if line =~ /Configuration Changed/
-				capture_error = line =~ /unable|error/i
-			end
-                end
-        end
-end
+  Timeout::timeout(30) do
+    loop do
+      result = select([server_log])
+
+      unless server_log.eof?
+        line = server_log.gets
+        if capture_error
+          logs << line unless line =~ /^\d+-\d+-\d+/
+        elsif line =~ /cachedCruiseConfigRefreshExecutorThread/
+          logs << line
+          break if line =~ /Configuration Changed/
+          capture_error = line =~ /unable|error/i
+          end
+      end
+    end
+  end
 rescue Timeout::Error
-	puts "==> Some error happened when applying the configuration change to Go, check below for more information.\n"
-	raise
+  puts "==> Some error happened when applying the configuration change to Go, check below for more information.\n"
+  raise
 ensure
-	puts logs.join('')
+  puts logs.join('')
 end
 
