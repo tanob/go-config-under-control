@@ -20,6 +20,13 @@
                 <arg>hello</arg>
                 <arg>world 2</arg>
               </exec>
+<exec command="gem">
+<arg>install</arg>
+<arg>bundler</arg>
+</exec>
+<exec command="bundle">
+<arg>install</arg>
+</exec>
 <exec command="sh">
   <arg>merge.rb</arg>
 </exec>
