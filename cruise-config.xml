@@ -5,7 +5,7 @@
       <materials>
         <git url="file:///home/vagrant/repo.git" />
       </materials>
-      <stage name="defaultStage">
+      <stage name="default Stage">
         <jobs>
           <job name="defaultJob">
             <tasks>
