@@ -18,14 +18,20 @@ server_log.seek 0, IO::SEEK_END
 File.open(config_file, 'w') {|f| f.write(config) }
 
 logs = []
+capture_error = false
 begin
 Timeout::timeout(30) do
         loop do
                 result = select([server_log])
                 unless server_log.eof?
                         line = server_log.gets
-                        logs << line if line =~ /cachedCruiseConfigRefreshExecutorThread/
-                        break if line =~ /Configuration Changed/
+			if capture_error
+				logs << line unless line =~ /^\d+-\d+-\d+/
+			elsif line =~ /cachedCruiseConfigRefreshExecutorThread/
+                       		logs << line
+                        	break if line =~ /Configuration Changed/
+				capture_error = line =~ /unable|error/i
+			end
                 end
         end
 end
