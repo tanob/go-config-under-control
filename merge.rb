@@ -35,7 +35,9 @@ Timeout::timeout(30) do
                 end
         end
 end
+rescue Timeout::Error
+	puts "==> Some error happened when applying the configuration change to Go, check below for more information.\n"
 ensure
-	puts logs.join("\n")
+	puts logs.join('')
 end
 
