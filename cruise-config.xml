@@ -25,7 +25,7 @@
 </exec>
 <exec command="bundle">
 <arg>exec</arg>
-  <arg>merge.rb</arg>
+  <arg>./merge.rb</arg>
 </exec>
             </tasks>
           </job>
