@@ -5,7 +5,7 @@
       <materials>
         <git url="file:///home/vagrant/repo.git" />
       </materials>
-      <stage name="default Stage">
+      <stage name="defaultStage">
         <jobs>
           <job name="defaultJob">
             <tasks>
@@ -24,17 +24,6 @@
           </job>
         </jobs>
       </stage>
-<stage name="2nd_Stage">
-	<jobs>
-		<job name="exit">
-			<tasks>
-				<exec command="echo">
-					<arg>good bye!</arg>
-				</exec>
-			</tasks>
-		</job>
-	</jobs>
-</stage>
     </pipeline>
   </pipelines>
 </cruise>
