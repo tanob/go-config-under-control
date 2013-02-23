@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="60">
-  <server artifactsdir="artifacts" serverId="2ae56462-c249-45c1-8d64-a481c85cfa17">
-    <security>
-      <roles>
-        <role name="baz" />
-      </roles>
-    </security>
-  </server>
   <pipelines group="defaultGroup">
     <pipeline name="Foo">
       <materials>
@@ -33,8 +26,5 @@
       </stage>
     </pipeline>
   </pipelines>
-  <agents>
-    <agent hostname="full.example.com" ipaddress="10.0.2.15" uuid="01ffba94-cd2c-4f93-afde-f079603ad23c" />
-  </agents>
 </cruise>
 
