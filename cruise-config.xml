@@ -24,6 +24,17 @@
           </job>
         </jobs>
       </stage>
+<stage name="2nd Stage">
+	<jobs>
+		<job name="exit">
+			<tasks>
+				<exec command="echo">
+					<arg>good bye!</arg>
+				</exec>
+			</tasks>
+		</job>
+	</jobs>
+</stage>
     </pipeline>
   </pipelines>
 </cruise>
